@@ -13,14 +13,14 @@ const initialValue ={
 	bad: 0
 };
 
-const updateFeedback = (x)=> {
+// const updateFeedback = (x) => {
  
- const [values, setValues] = useState({
-   const update = (initialValues, x)) =>{setValues{{
-    ...values,
-    x: values.x +1
-   }}}
- })};
+//  const [values, setValues] = useState({
+//    (x) =>{setValues{{
+//     ...values,
+//     x: values.x +1
+//    }}}
+//  })};
 
 
 	// const updateNeutral = () => {setValues({
