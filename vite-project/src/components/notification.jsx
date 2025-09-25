@@ -1,5 +1,5 @@
-const Notification =()=>{
-    return(
+const Notification = () =>{
+    return (
 <>
 <div>
     Not feedback yet.
