@@ -4,39 +4,30 @@ import { useState } from 'react'
 import Description from "./components/description.jsx"
 import Options from "./components/options.jsx"
 import './App.css'
+import Feedback from "./components/feedback.jsx"
 
 function App() {
 
-const initialValue ={
-   good: 0,
+const [values, setValues] = useState(
+ {
+  good: 0,
 	neutral: 0,
 	bad: 0
-};
 
-// const updateFeedback = (x) => {
- 
-//  const [values, setValues] = useState({
-//    (x) =>{setValues{{
-//     ...values,
-//     x: values.x +1
-//    }}}
-//  })};
+});
 
 
-	// const updateNeutral = () => {setValues({
-	// 	...values,
-	// 	neutral: values.neutral + 1})};
-
-  //   const updateBad = () => {setValues({
-	// 	...values,
-	// 	bad: values.bad + 1});
-  //   };
-
+const updateFeedback = (x) => {
+  setValues({ ...values, [x]: values[x] + 1 });
+ };
   
 return (
   <>
    <Description  />
-    <Options />
+    <Options updateFeedback={updateFeedback}/>
+    <Feedback values={values} />
+   
+
    
   </>
 )
@@ -44,4 +35,4 @@ return (
 
 
 
-export default App
+export default App;
