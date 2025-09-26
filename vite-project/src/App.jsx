@@ -16,13 +16,15 @@ const initialValue =
 
 function App() {
 
+
 const [values, setValues] = useState(()=>{
 
 const getLocal = localStorage.getItem("Feedback rates");
 if (getLocal !== null) {
-      return JSON.parse(getLocal);
+      return JSON.parse(getLocal); 
+    
     } else {
-      return initialValue;
+      return  initialValue
     }
 });
 
@@ -30,25 +32,22 @@ const totalFeedback = values.good + values.neutral + values.bad;
 
 const updateFeedback = (x) => {
   setValues({ ...values, [x]: values[x] + 1 });
-  //  setVisible (visible !== true);
- };
+  
+};
   
 const positive = Math.round(((values.good + values.neutral) / totalFeedback) * 100);
 
  useEffect(() => {
     localStorage.setItem("Feedback rates", JSON.stringify(values));
+
   }, [values]);
 
-  const [visible, setVisible] = useState(true);
+ 
 
-const reset = () => {
-   localStorage.clear()
-   setVisible (visible === true)
-
-};
-// const [visible, setVisible] = useState(
-
-// );
+const reset= () => {
+  setValues(initialValue);
+   localStorage.clear() ; 
+  };
 
 
 
@@ -56,11 +55,10 @@ const reset = () => {
 
 return (
   <>
-   <Description  />
-
-    <Options updateFeedback={updateFeedback} reset={reset} />
+    <Description  />
+    <Options updateFeedback={updateFeedback} reset={reset}/>
     <Feedback values={values} totalFeedback={totalFeedback} positive={positive} />
-    { visible && <Notification/>}
+    <Notification values={values}/>
    
 
    
